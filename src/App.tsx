@@ -16,7 +16,7 @@ function App() {
             <Accordion title={"---Menu---"} collapsed = {true}/>
             Article 2
             <Accordion title={"---Users---"} collapsed = {false}/>
-            <Rating value={4}/>
+            <Rating value={2}/>
             <OnOff />
             <UncontrolledAccordion title={'---Uncontrolled Accordion---'} />
         </div>
