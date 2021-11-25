@@ -1,20 +1,21 @@
 import React, {useState} from "react";
+import style from './UncontrolledAccordion.module.css'
 
 type AccordionType = {
     title: string
     collapsed?: boolean
 }
 
-function UncontrolledAccordion(props: AccordionType) {
+function UncontroledAccordion(props: AccordionType) {
 
-    let [collapsed, setToggle] = useState(false)
+    let [collapsed, setCollapsed] = useState(false)
 
-    const toggle = (collapsed: boolean) => {
-       return !collapsed
+    const toggle = ()=>{
+        setCollapsed(!collapsed)
     }
     return (
         <div>
-            <AccordionTitle title={props.title}/> <button onClick={() => {setToggle(toggle(collapsed))}}>Toggle</button>
+            <AccordionTitle title={props.title} toggle={toggle}/>
             {!collapsed && <AccordionBody/>}
         </div>
     )
@@ -24,11 +25,12 @@ function UncontrolledAccordion(props: AccordionType) {
 
 type accordionTitleType = {
     title: string
+    toggle: () => void
 }
 
 function AccordionTitle(props: accordionTitleType) {
     return (
-            <h3>{props.title}</h3>
+            <h3 className={style.h3} onClick={props.toggle}>{props.title}</h3>
     )
 }
 
@@ -45,4 +47,4 @@ function AccordionBody() {
     )
 }
 
-export default UncontrolledAccordion;
+export default UncontroledAccordion;
