@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
-type OnOffType ={
+ export type OnOffType ={
     on?: boolean
 
 }
 
-const OnOff = (props: OnOffType) => {
+const UnCtrlOnOff = (props: OnOffType) => {
 
     let [on, setOn] = useState(false)
 
@@ -45,4 +45,4 @@ const OnOff = (props: OnOffType) => {
     );
 };
 
-export default OnOff;
+export default UnCtrlOnOff;
