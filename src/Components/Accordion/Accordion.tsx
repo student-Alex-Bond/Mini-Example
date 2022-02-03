@@ -1,23 +1,35 @@
 import React from "react";
-export type AccordionType ={
+
+
+type ItemType ={
+    title: string
+    value: any
+}
+
+
+export type AccordionType = {
     title: string
     collapsed?: boolean
-    onChange: ()=> void
+    onChange: () => void
+    items: ItemType[]
+    onClick: (value:any) => void
 }
 
 export function Accordion(props: AccordionType) {
-       return (
-       <div>
-           <AccordionTitle title = {props.title} onChange={props.onChange}/>
-           { !props.collapsed && <AccordionBody/>}
-       </div>
-   )
+    return (
+        <div>
+            <AccordionTitle title={props.title} onChange={props.onChange}/>
+            {!props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
+        </div>
+    )
 
 
 }
-type accordionTitleType ={
+
+type accordionTitleType = {
     title: string
-    onChange: ()=> void
+    onChange: () => void
+
 }
 
 export function AccordionTitle(props: accordionTitleType) {
@@ -28,14 +40,18 @@ export function AccordionTitle(props: accordionTitleType) {
     )
 }
 
+type AccordionBodyType = {
+    items: ItemType[]
+    onClick: (value: any) => void
+}
 
-function AccordionBody() {
+function AccordionBody(props: AccordionBodyType) {
     return (
         <>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                {props.items.map((item, index) => {
+                    return <li onClick ={()=> {props.onClick(item.value)}} key={index}>{item.title}</li>
+                })}
             </ul>
         </>
     )
