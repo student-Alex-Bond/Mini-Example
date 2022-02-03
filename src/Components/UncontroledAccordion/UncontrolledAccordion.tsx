@@ -1,12 +1,12 @@
 import React, {useState} from "react";
 import style from './UncontrolledAccordion.module.css'
 
-type AccordionType = {
+export type AccordionUncontrolledType = {
     title: string
     collapsed?: boolean
 }
 
-function UncontrolledAccordion(props: AccordionType) {
+function UncontrolledAccordion(props: AccordionUncontrolledType) {
 
     let [collapsed, setCollapsed] = useState(false)
 

@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 
- export type OnOffType ={
-    on?: boolean
 
-}
 
-const UnCtrlOnOff = (props: OnOffType) => {
+const UnCtrlOnOff = () => {
 
     let [on, setOn] = useState(false)
 

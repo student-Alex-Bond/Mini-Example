@@ -3,6 +3,7 @@ import React from 'react';
 type OnOffType ={
     on: boolean
     onChange: (on: boolean)=> void
+    onClick? : () => void
 
 }
 
@@ -36,11 +37,18 @@ const ControlledOnOff = (props: OnOffType) => {
         display: 'flex'
     }
 
+    const view = () => {
+        props.onChange(true)
+    }
+    const noView = () => {
+        props.onChange(false)
+    }
+
 
     return (
         <div style = {general}>
-            <div style ={onStyle} onClick={() => {props.onChange(true)}} >on</div>
-            <div style = {offStyle} onClick={() => {props.onChange(false)}}>off</div>
+            <div style ={onStyle} onClick={view} >on</div>
+            <div style = {offStyle} onClick={noView}>off</div>
             <div style = {indicatorStyle}></div>
         </div>
     );
