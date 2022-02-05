@@ -1,17 +1,33 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 import style from './UncontrolledAccordion.module.css'
 
 export type AccordionUncontrolledType = {
     title: string
     collapsed?: boolean
 }
+type ActionType ={
+    type: string
+}
+
+
+const reducer = (state: boolean, action: ActionType) => {
+    if(action.type === "TOGGLE-COLLAPSED"){
+        return !state
+    }
+
+    return state
+}
+
+
 
 function UncontrolledAccordion(props: AccordionUncontrolledType) {
 
-    let [collapsed, setCollapsed] = useState(false)
+  //  let [collapsed, setCollapsed] = useState(false)
+    let [collapsed, dispatch] = useReducer(reducer, false)
+
 
     const toggle = ()=>{
-        setCollapsed(!collapsed)
+        dispatch({type: "TOGGLE-COLLAPSED"})
     }
     return (
         <div>

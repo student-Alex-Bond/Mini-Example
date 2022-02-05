@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {ComponentStory, ComponentMeta} from '@storybook/react'
 import UncontrolledAccordion from './UncontrolledAccordion'
 
@@ -9,11 +9,6 @@ export default {
 
 
 const Template: ComponentStory<typeof UncontrolledAccordion> = (args) => {
-    let [collapsed, setCollapsed] = useState(false)
-
-    const toggle = () => {
-        setCollapsed(!collapsed)
-    }
 
     return <UncontrolledAccordion {...args}/>
 }
@@ -21,6 +16,6 @@ const Template: ComponentStory<typeof UncontrolledAccordion> = (args) => {
 export const UnCtrlAccord = Template.bind({})
 
 UnCtrlAccord.args = {
-    title: 'UncontrolledAccordion',
+    title: 'Users',
     collapsed: true
 }
