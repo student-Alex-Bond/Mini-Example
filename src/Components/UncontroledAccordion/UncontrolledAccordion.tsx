@@ -1,19 +1,19 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
 import style from './UncontrolledAccordion.module.css'
 
 export type AccordionUncontrolledType = {
     title: string
     collapsed?: boolean
 }
-type ActionType ={
+export type ActionType ={
     type: string
 }
-type StateType = {
+export type StateType = {
     collapsed: boolean
 }
 
 
-const reducer = (state:StateType , action: ActionType):StateType => {
+export const reducer = (state:StateType , action: ActionType):StateType => {
     switch (action.type){
         case "TOGGLE-COLLAPSED":
             return {
