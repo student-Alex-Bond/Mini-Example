@@ -1,0 +1,35 @@
+.title {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid lightskyblue;
+    width: 100px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    color: darkslateblue;
+}
+
+.arrow {
+    width: 20px;
+    transform: rotate(-270deg);
+}
+
+.arrow_bottom {
+    width: 20px;
+    transform: rotate(-90deg);
+}
+
+.item {
+    width: 100px;
+    text-align: center;
+    color: darkslateblue;
+}
+
+.item :hover {
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #1ea7fd;
+    color: white;
+    margin-bottom: 2px;
+}
