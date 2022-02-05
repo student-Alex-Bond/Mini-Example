@@ -1,0 +1,28 @@
+.select .main {
+    display: inline-block;
+    width: 100px;
+    border: 1px solid;
+
+}
+
+.items {
+    width: 89px;
+    cursor: pointer;
+    position: absolute;
+    padding: 5px;
+    border: 1px solid;
+
+}
+
+.item.selected {
+    background-color: #1ea7fd;
+    color: #e7fdd8;
+}
+
+.items :hover {
+    background-color: #1ea7fd;
+}
+
+.select.active .items {
+    display: block;
+}

@@ -13,7 +13,7 @@ type SelectPropsType = {
     title: string
     currentValue?: any
     collapsed: boolean
-    onClick: () => string
+    onClick?: () => string
     onChange?: (value: any) => void
     items: ItemType[];
     openClosedMenu:(flag: boolean) => void
