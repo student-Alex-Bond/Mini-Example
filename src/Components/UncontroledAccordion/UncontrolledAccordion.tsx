@@ -8,14 +8,21 @@ export type AccordionUncontrolledType = {
 type ActionType ={
     type: string
 }
+type StateType = {
+    collapsed: boolean
+}
 
 
-const reducer = (state: boolean, action: ActionType) => {
-    if(action.type === "TOGGLE-COLLAPSED"){
-        return !state
+const reducer = (state:StateType , action: ActionType):StateType => {
+    switch (action.type){
+        case "TOGGLE-COLLAPSED":
+            return {
+                ...state,
+                collapsed: !state.collapsed
+            }
+        default:
+            return state
     }
-
-    return state
 }
 
 
@@ -23,7 +30,7 @@ const reducer = (state: boolean, action: ActionType) => {
 function UncontrolledAccordion(props: AccordionUncontrolledType) {
 
   //  let [collapsed, setCollapsed] = useState(false)
-    let [collapsed, dispatch] = useReducer(reducer, false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
 
     const toggle = ()=>{
@@ -32,7 +39,7 @@ function UncontrolledAccordion(props: AccordionUncontrolledType) {
     return (
         <div>
             <AccordionTitle title={props.title} toggle={toggle}/>
-            {!collapsed && <AccordionBody/>}
+            {!state.collapsed && <AccordionBody/>}
         </div>
     )
 
