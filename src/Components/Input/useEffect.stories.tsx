@@ -28,19 +28,21 @@ export const UseEffects = () => {
 }
 export const SetTimeoutExample = () => {
 
-    const [counter, setCounter] = useState(1)
+    const [second, setSeconds] = useState(1)
+    const [minutes, setMinutes] = useState(1)
+    const [hour, setHour] = useState(1)
 
-    // React.useEffect(()=>{
-    //     document.title = String(counter)
-    // })
-
-    setTimeout(()=>{
-        document.title = counter.toString()
+    React.useEffect(()=>{
+    setInterval(()=>{
+        setSeconds(new Date().getSeconds())
+        setMinutes(new Date().getMinutes())
+        setHour(new Date().getHours())
     }, 1000)
+    }, [])
 
     return <>
-        Hello, {counter}
-        <button onClick={()=> {setCounter(counter+1)}}>+</button>
+        Hello, {hour}:{minutes}:{second}
+
     </>
 }
 
