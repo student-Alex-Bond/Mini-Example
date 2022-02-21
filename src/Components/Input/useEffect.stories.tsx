@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useRef, useState} from 'react';
+import React, { useState} from 'react';
 import {Meta, Story} from '@storybook/react';
 
 
