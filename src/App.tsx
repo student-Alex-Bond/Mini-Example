@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import Rating, {RatingValueType} from "./Components/Rating/Rating";
-import Accordion from "./Components/Accordion/Accordion";
+
 import UncontrolledAccordion from "./Components/UncontroledAccordion/UncontrolledAccordion";
 import UncontrolledRating from "./Components/UncontrolRating/UncontroledRating";
 import ControlledOnOff from "./Components/ControlledOnOff/ControlledOnOff";
-import UnCtrlOnOff from "./Components/UnCtrlOnOff/UnCtrlOnOff";
+
 
 
 function App() {
@@ -24,10 +24,7 @@ function App() {
             {/*<UnCtrlOnOff/>*/}
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion title={"---Users---"} collapsed={accordionCollapsed}
-                       onChange={() => {
-                           setAccordionCollapsed(!accordionCollapsed)
-                       }}/>
+
 
             <UncontrolledAccordion title={'---Uncontrolled Accordion---'}/>
             <UncontrolledRating/>
